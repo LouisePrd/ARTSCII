@@ -1,7 +1,18 @@
 @import './base.css';
 
+@font-face {
+  font-family: 'Mineraft';
+  src: url('./fonts/Minecraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+    background-color: var(--color-background-mute);
+}
+
 #app {
-  height: 100vh;
+  min-width: 70vw;
   padding: 0 2rem;
   box-sizing: border-box;
   overflow: auto;
@@ -9,5 +20,159 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-background-soft);
+  gap: 20px;
+}
+
+.ascii-header {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.ascii-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 1.8rem;
+  font-family: 'Mineraft', Arial, sans-serif;
+  color: black;
+}
+
+.ascii-header p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0;
+  font-family: 'Courier New', Courier, monospace;
+  color: #ccc;
+}
+
+
+.ascii-container {
+  padding: 50px;
+  text-align: center;
+  color: #fff;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #0005;
+  font-family: Arial, sans-serif;
+}
+
+.drop-zone:hover {
+  background: #333;
+}
+
+.controls {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  text-align: left;
+  color: #ccc;
+}
+
+.ascii-output {
+  background: #000;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 6px;
+  text-align: left;
+  overflow-x: auto;
+  white-space: pre;
+  font-family: monospace;
+  font-size: 7px;
+  max-height: 600px;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  background: #444;
+  border: none;
+  padding: 8px 16px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #666;
+}
+
+.hidden {
+  display: none;
+}
+
+pre {
+  justify-content: center;
+  text-align: center;
+  font-size: 8px;
+}
+
+
+.drop-zone {
+  position: relative;
+  border: 2px dashed #555;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 20px;
+  background: #222 url('/src/assets/upload-bg.png') no-repeat center center;
+  background-size: contain;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.drop-zone::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.drop-zone p {
+  position: relative;
+  color: #c6c6c6;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-shadow: 0 0 5px #000;
+}
+
+.drop-zone:hover {
+  transform: scale(1.02);
+  background-color: #333;
+  background-blend-mode: lighten;
+}
+
+@media (max-width: 600px) {
+  .ascii-header h1 {
+    font-size: 2rem;
+  }
+
+  .ascii-header p {
+    font-size: 1rem;
+  }
 }
