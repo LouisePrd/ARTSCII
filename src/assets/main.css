@@ -133,7 +133,7 @@ pre {
   cursor: pointer;
   overflow: hidden;
   padding: 20px;
-  background: #222 url('/src/assets/upload-bg.png') no-repeat center center;
+  background: #222;
   background-size: contain;
   transition: background 0.3s ease, transform 0.2s ease;
   display: flex;
