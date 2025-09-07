@@ -1,0 +1,89 @@
+.ascii-container {
+  width: 80vw;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #0005;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.drop-zone {
+  border: 2px dashed #555;
+  padding: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  background: #222;
+  transition: 0.2s;
+}
+
+.drop-zone:hover {
+  background: #333;
+}
+
+.controls {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  text-align: left;
+  color: #ccc;
+}
+
+.ascii-output {
+  background: #000;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 6px;
+  text-align: left;
+  overflow-x: auto;
+  white-space: pre;
+  font-family: monospace;
+  font-size: 7px;
+  max-height: 600px;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  background: #444;
+  border: none;
+  padding: 8px 16px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #666;
+}
+
+.hidden {
+  display: none;
+}
+
+pre {
+    justify-content: center;
+    text-align: center;
+    font-size: 8px;
+}
