@@ -8,7 +8,7 @@
 }
 
 html {
-    background-color: var(--color-background-mute);
+  background-color: #f2f2f2;
 }
 
 #app {
@@ -186,8 +186,13 @@ pre {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 600px) {
