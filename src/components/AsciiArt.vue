@@ -1,6 +1,5 @@
 <template>
   <div class="ascii-container">
-    <h1 class="title">ARTSCII</h1>
 
     <div
       class="drop-zone"
@@ -30,6 +29,8 @@
           <option value="@%#*+=-:. ">Dark to Light</option>
           <option value=" .:-=+*#%@">Light to Dark</option>
           <option value="01">Binary (0/1)</option>
+            <option value=" .oO0@">Simple</option>
+            <option value=" .,:;i1tfLCG08@">Detailed</option>
         </select>
       </label>
     </div>
@@ -49,8 +50,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import "../assets/ascii-art.css";
+import { ref, watch } from "vue";
+import "../assets/main.css";
 
 const asciiArt = ref("");
 const asciiWidth = ref(100);
@@ -59,6 +60,19 @@ const fileInput = ref(null);
 const canvas = ref(null);
 const imageLoaded = ref(false);
 let img = null;
+const bgImage = ref("");
+
+watch(bgImage, (newVal) => {
+  if (newVal) {
+    document.documentElement.style.backgroundImage = `url(${newVal})`;
+    document.documentElement.style.backgroundSize = "auto";
+    document.documentElement.style.backgroundPosition = "center";
+    document.documentElement.style.backgroundRepeat = "repeat";
+    document.documentElement.style.backgroundColor = "none";
+  } else {
+    document.documentElement.style.backgroundImage = "";
+  }
+});
 
 const handleDrop = (event) => {
   const file = event.dataTransfer.files[0];
@@ -77,6 +91,7 @@ const processFile = (file) => {
     img.src = reader.result;
     img.onload = () => {
       imageLoaded.value = true;
+      bgImage.value = reader.result;
       convertImage();
     };
   };
@@ -132,4 +147,5 @@ const downloadAscii = () => {
   a.click();
   URL.revokeObjectURL(url);
 };
+
 </script>
